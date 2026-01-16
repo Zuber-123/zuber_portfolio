@@ -222,6 +222,7 @@ body{
   .skills__grid--tech{grid-template-columns:1fr}
   .cards{grid-template-columns:1fr}
   .journey{padding:24px 12px}
+  .contact__row{flex-direction:column}
   .timeline__row{grid-template-columns:24px 1fr;gap:10px;align-items:flex-start}
   .timeline__col--left,.timeline__col--right{grid-column:2}
   /* side-mail removed */

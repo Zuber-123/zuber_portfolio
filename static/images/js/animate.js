@@ -127,11 +127,19 @@ window.submitContact = function(form){
   fetch('/contact',{method:'POST',body:new FormData(form)})
     .then(r=>r.json())
     .then(d=>{
-      status.textContent=d.ok?'Message sent successfully!':'Failed to send message.';
-      if(d.stored){status.textContent+=' (Saved locally)'}
-      form.reset();
-      setTimeout(()=>{status.textContent=''}, 5000);
+      if(d.ok){
+        status.textContent='Message sent successfully!';
+        if(d.stored){status.textContent+=' (Saved locally)'}
+        form.reset();
+        setTimeout(()=>{status.textContent=''}, 5000);
+      } else {
+        status.textContent = 'Error: ' + (d.error || 'Failed to send message.');
+        status.style.color = '#ff6b6b';
+      }
     })
-    .catch(()=>{status.textContent='Failed to send message.'});
+    .catch(()=>{
+      status.textContent='Failed to send message (Network error).';
+      status.style.color = '#ff6b6b';
+    });
   return false;
 };

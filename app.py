@@ -653,9 +653,10 @@ def contact_submit():
         existing.append({"name": name, "email": email, "message": message})
         with open(store_path, "w", encoding="utf-8") as wf:
             json.dump(existing, wf, indent=2)
-    except Exception:
-        pass
-    return jsonify({"ok": True, "stored": True})
+        return jsonify({"ok": True, "stored": True})
+    except Exception as e:
+        print(f"Storage failed: {e}")
+        return jsonify({"ok": False, "error": "Email not configured and storage read-only."}), 500
 
 
 if __name__ == "__main__":
