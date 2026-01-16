@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ data.name }} • Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('images', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <canvas id="starfield"></canvas>
+    <header class="hero hero--left">
+      <div class="hero__intro hero__intro--left">
+        <p class="hero__hi">Hi, I'm</p>
+        <h1 class="hero__outline hero__outline--animated">
+          {% set parts = data.name.split(' ') %} {{ (parts[0] or '')|upper
+          }}&nbsp;{{ (parts[1] or '')|upper }}
+        </h1>
+        <p class="hero__roles">
+          <span class="roles-prefix">I am </span
+          ><span
+            id="roles-typed"
+            data-roles="{{ (data.roles or ['Full Stack Developer','Machine Learning Engineer','Data Engineer'])|join('|') }}"
+          ></span>
+        </p>
+        <p class="hero__tagline">{{ data.tagline }}</p>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="profile">
+        <div class="profile__grid">
+          <div class="profile__photo">
+            {% if data.photo %}
+            <img
+              src="{{ url_for('images', filename=data.photo) }}"
+              alt="{{ data.name }}"
+            />
+            {% endif %}
+          </div>
+          <div class="profile__content">
+            <h2 class="profile__headline">
+              I'm <span class="accent">{{ data.name }}</span>, a Full Stack
+              Developer building creative and scalable web applications.
+            </h2>
+            <p class="profile__text">{{ (data.about or '') }}</p>
+            <p class="profile__text">
+              I build with HTML, CSS, JavaScript, Python, Django/Flask, MongoDB
+              and SQL. I also use ML for recommendations and prediction when it
+              benefits user experience.
+            </p>
+            <div class="social-slider">
+              {% if data.contacts.github %}
+              <a
+                class="social-item"
+                href="{{ data.contacts.github }}"
+                target="_blank"
+                aria-label="GitHub"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.41-1.35-1.78-1.35-1.78-1.1-.75.08-.73.08-.73 1.22.09 1.86 1.25 1.86 1.25 1.08 1.86 2.84 1.32 3.53 1.01.11-.79.42-1.32.76-1.63-2.66-.3-5.46-1.33-5.46-5.93 0-1.31.47-2.39 1.24-3.24-.12-.31-.54-1.56.12-3.25 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.67 1.69.25 2.94.12 3.25.77.85 1.24 1.93 1.24 3.24 0 4.61-2.81 5.63-5.49 5.93.43.37.82 1.1.82 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .5Z"
+                  />
+                </svg>
+              </a>
+              {% endif %} {% if data.contacts.linkedin %}
+              <a
+                class="social-item"
+                href="{{ data.contacts.linkedin }}"
+                target="_blank"
+                aria-label="LinkedIn"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M4.98 3.5A2.5 2.5 0 1 0 5 8.5a2.5 2.5 0 0 0-.02-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1.01 1.82-2.07 3.75-2.07 4.01 0 4.75 2.64 4.75 6.07V21h-4v-5.35c0-1.28-.02-2.93-1.79-2.93-1.79 0-2.07 1.4-2.07 2.84V21h-4V9Z"
+                  />
+                </svg>
+              </a>
+              {% endif %} {% if data.contacts.email %}
+              <a
+                class="social-item"
+                href="mailto:{{ data.contacts.email }}"
+                aria-label="Email"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4.23-8 5.02-8-5.02V6l8 5 8-5v2.23Z"
+                  />
+                </svg>
+              </a>
+              {% endif %}
+              <a
+                class="social-item"
+                href="{{ url_for('download_resume') }}"
+                aria-label="Resume"
+                title="Resume"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12 3a1 1 0 0 1 1 1v9.586l2.293-2.293a1 1 0 1 1 1.414 1.414l-4 4a1 1 0 0 1-1.414 0l-4-4a1 1 0 1 1 1.414-1.414L11 13.586V4a1 1 0 0 1 1-1Z"
+                  ></path>
+                  <path
+                    d="M5 19a2 2 0 0 1 2-2h10a2 2 0 1 1 0 4H7a2 2 0 0 1-2-2Z"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="journey">
+        <h2>My Journey</h2>
+        <div class="timeline timeline--alt">
+          {% for item in data.journey %}
+          <div
+            class="timeline__row reveal"
+            style="transition-delay: {{ (loop.index0 * 0.08) | round(2) }}s"
+          >
+            {% if loop.index0 % 2 == 0 %}
+            <div class="timeline__col timeline__col--left">
+              <div class="timeline__card">
+                <h3>{{ item.title }}</h3>
+                {% if item.period %}
+                <p class="timeline__period">{{ item.period }}</p>
+                {% endif %}
+                <p class="timeline__text">{{ item.text }}</p>
+              </div>
+            </div>
+            <div class="timeline__bar"><span class="timeline__dot"></span></div>
+            <div class="timeline__col timeline__col--right"></div>
+            {% else %}
+            <div class="timeline__col timeline__col--left"></div>
+            <div class="timeline__bar"><span class="timeline__dot"></span></div>
+            <div class="timeline__col timeline__col--right">
+              <div class="timeline__card">
+                <h3>{{ item.title }}</h3>
+                {% if item.period %}
+                <p class="timeline__period">{{ item.period }}</p>
+                {% endif %}
+                <p class="timeline__text">{{ item.text }}</p>
+              </div>
+            </div>
+            {% endif %}
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+
+      {% if data.experience %}
+      <section class="resume-section">
+        <h2>Experience</h2>
+        <div class="resume-list">
+          {% for ex in data.experience %}
+          <div class="resume-item reveal">
+            <div class="resume-item__header">
+              <span class="resume-item__title">{{ ex.role }}</span>
+              <span class="resume-item__period">{{ ex.period }}</span>
+            </div>
+            <div class="resume-item__sub">{{ ex.company }}</div>
+            {% if ex.description %}
+            <p class="resume-item__desc">{{ ex.description }}</p>
+            {% endif %}
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+      {% endif %} {# Internships are now represented in the Journey timeline and
+      projects section #}
+
+      <section class="skills">
+        <h2>Technical Skills</h2>
+        <div class="skills__grid skills__grid--tech">
+          <div class="skills__group reveal" style="transition-delay: 0s">
+            <h3>Languages</h3>
+            <div class="chips">
+              {% for s in data.skills.languages %}<span
+                class="chip"
+                data-title="{{ s }}"
+                >{{ s }}</span
+              >{% endfor %}
+            </div>
+          </div>
+          <div class="skills__group reveal" style="transition-delay: 0.06s">
+            <h3>Frameworks</h3>
+            <div class="chips">
+              {% for s in data.skills.frameworks %}<span
+                class="chip"
+                data-title="{{ s }}"
+                >{{ s }}</span
+              >{% endfor %}
+            </div>
+          </div>
+          <div class="skills__group reveal" style="transition-delay: 0.12s">
+            <h3>Databases</h3>
+            <div class="chips">
+              {% for s in data.skills.databases %}<span
+                class="chip"
+                data-title="{{ s }}"
+                >{{ s }}</span
+              >{% endfor %}
+            </div>
+          </div>
+          <div class="skills__group reveal" style="transition-delay: 0.18s">
+            <h3>Machine Learning</h3>
+            <div class="chips">
+              {% for s in data.skills.machine_learning %}<span
+                class="chip"
+                data-title="{{ s }}"
+                >{{ s }}</span
+              >{% endfor %}
+            </div>
+          </div>
+          <div class="skills__group reveal" style="transition-delay: 0.24s">
+            <h3>Concepts</h3>
+            <div class="chips">
+              {% for s in data.skills.concepts %}<span
+                class="chip"
+                data-title="{{ s }}"
+                >{{ s }}</span
+              >{% endfor %}
+            </div>
+          </div>
+          <div class="skills__group reveal" style="transition-delay: 0.3s">
+            <h3>Tools</h3>
+            <div class="chips">
+              {% for s in data.skills.tools %}<span
+                class="chip"
+                data-title="{{ s }}"
+                >{{ s }}</span
+              >{% endfor %}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="projects">
+        <h2>Projects</h2>
+        <div class="cards">
+          {% for p in data.projects %}
+          <div
+            class="card reveal"
+            style="transition-delay: {{ (loop.index0 * 0.08) | round(2) }}s"
+          >
+            <div class="card__image">
+              {% if p.image %}
+              <img
+                src="{{ url_for('images', filename=p.image) }}"
+                alt="{{ p.name }}"
+              />
+              {% elif p.image_remote %}
+              <img src="{{ p.image_remote }}" alt="{{ p.name }}" />
+              {% else %}
+              <div class="card__placeholder">{{ p.name[0] }}</div>
+              {% endif %}
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">{{ p.name }}</h3>
+              <p class="card__desc">{{ p.description or 'Project' }}</p>
+              <div class="card__actions">
+                {% if p.url %}
+                <a
+                  class="pill"
+                  href="{{ p.url }}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Live demo</a
+                >
+                {% endif %} {% if p.highlights %}
+                <button
+                  type="button"
+                  class="pill pill--ghost"
+                  data-project-toggle
+                >
+                  See more
+                </button>
+                {% endif %}
+              </div>
+              {% if p.highlights %}
+              <ul class="card__details">
+                {% for h in p.highlights %}
+                <li>{{ h }}</li>
+                {% endfor %}
+              </ul>
+              {% endif %} {% if p.tags and p.tags|length > 0 %}
+              <div class="card__tags">
+                {% for t in p.tags %}
+                <span class="tag">{{ t }}</span>
+                {% endfor %}
+              </div>
+              {% endif %}
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+
+      <section id="contact" class="contact">
+        <h2>Contact</h2>
+        <form
+          class="contact__form"
+          method="post"
+          action="/contact"
+          onsubmit="return submitContact(this)"
+        >
+          <div class="contact__row">
+            <div class="contact__field">
+              <label>Name</label>
+              <input type="text" name="name" required />
+            </div>
+            <div class="contact__field">
+              <label>Email</label>
+              <input type="email" name="email" required />
+            </div>
+          </div>
+          <div class="contact__field">
+            <label>Message</label>
+            <textarea name="message" rows="4" required></textarea>
+          </div>
+          <button class="btn btn--primary" type="submit">Send</button>
+          <p id="contact-status" class="contact__status"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <p>© {{ data.name }} • {{ data.tagline }}</p>
+        <div class="links">
+          {% if data.contacts.linkedin %}<a
+            href="{{ data.contacts.linkedin }}"
+            target="_blank"
+            >LinkedIn</a
+          >{% endif %} {% if data.contacts.github %}<a
+            href="{{ data.contacts.github }}"
+            target="_blank"
+            >GitHub</a
+          >{% endif %} {% if data.contacts.email %}<a
+            href="mailto:{{ data.contacts.email }}"
+            >Email</a
+          >{% endif %}
+        </div>
+      </div>
+    </footer>
+    <script src="{{ url_for('images', filename='js/starfield.js') }}"></script>
+    <script src="{{ url_for('images', filename='js/animate.js') }}"></script>
+  </body>
+</html>

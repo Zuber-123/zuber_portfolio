@@ -1,0 +1,172 @@
+{
+  "name": "Zuber Khan",
+  "tagline": "An aspiring Full Stack Developer passionate about building sleek web experiences.",
+  "about": "Full Stack Developer skilled in Django with strong command over frontend, backend, database, and deployment.\n Experienced in building scalable and secure web applications using React, Python, Django, REST APIs, SQL. Strong \n in Data Structures and Algorithms (C++) with proven coding expertise.",
+  "contacts": {
+    "email": "zubekhan7301@gmail.com",
+    "linkedin": "https://linkedin.com/in/zuber-khan7301",
+    "github": "https://github.com/Zuber-123"
+  },
+  "contact_email": "zubekhan7301@gmail.com",
+  "skills": {
+    "languages": [
+      "Python",
+      "JavaScript",
+      "C++",
+      "C",
+      "SQL",
+      "HTML",
+      "CSS"
+    ],
+    "frameworks": [
+      "Django",
+      "Flask",
+      "React.js",
+      "Tailwind CSS",
+      "Bootstrap"
+    ],
+    "databases": [
+      "PostgreSQL",
+      "MySQL",
+      "SQLite",
+      "MongoDB"
+    ],
+    "machine_learning": [
+      "Pandas",
+      "NumPy",
+      "Scikit-learn",
+      "Seaborn",
+      "Matplotlib"
+    ],
+    "concepts": [
+      "Data Structures & Algorithms",
+      "OOP",
+      "DBMS",
+      "OS",
+      "Computer Networks"
+    ],
+    "tools": [
+      "Git",
+      "GitHub",
+      "VS Code",
+      "Linux"
+    ]
+  },
+  "education": [
+    {
+      "degree": "Master of Computer Applications (MCA)",
+      "institution": "Institute of Engineering and Technology, Lucknow",
+      "period": "Sept 2023 – May 2025",
+      "description": "Focused on advanced software development, backend engineering, database systems, machine learning fundamentals, and problem-solving using Data Structures and Algorithms."
+    },
+    {
+      "degree": "Bachelor’s Degree",
+      "institution": "Aligarh Muslim University, Aligarh",
+      "period": "Aug 2019 – June 2022",
+      "description": "Built strong fundamentals in computer science, programming, mathematics, and core engineering subjects."
+    }
+  ],
+  "internships": [
+    ")Apr 2025 – Aug 2025\n•SmartKart — Python Django Based E-commerce Platform.\n•Tech Stack: Python,Django,Supabase,React.js,Tailwind CSS.\n•Developed full authentication system (JWT + role-based access) for users, sellers, and admins.\n•BuiltREST APIsfor cart, wishlist, orders, payments, and seller inventory management.\n•Integratedrecommendation engine (ML)using cosine similarity to recommend products based on user behavior.\n•Designed responsive, mobile-first UI using React + Tailwind for dashboard and product pages.\n•Link:quick-kart-lilac.vercel.app"
+  ],
+  "current_job": "Full Stack Developer at G-Fam Mediatech skilled in Django with strong command over frontend, backend, database, and deployment.",
+  "journey": [
+    {
+      "title": "Full Stack Developer at G-Fam Mediatech",
+      "text": "Working as Full Stack Developer at G-Fam Mediatech where I build and deploy scalable web applications using Django, REST APIs, and modern frontend stacks.",
+      "period": "Present"
+    },
+    {
+      "title": "Python developer Internship at Techmatrix",
+      "text": "SmartKart — Python Django based e-commerce platform where I built authentication, REST APIs, recommendation engine, and responsive dashboards.",
+      "period": "Apr 2025 – Aug 2025"
+    },
+    {
+      "title": "MCA at IET Lucknow",
+      "text": "Completed Master of Computer Applications at Institute of Engineering and Technology, Lucknow with focus on backend engineering, databases, and machine learning.",
+      "period": "Sept 2023 – May 2025"
+    },
+    {
+      "title": "Bachelor’s Degree at AMU",
+      "text": "Completed Bachelor’s degree at Aligarh Muslim University, Aligarh and built strong foundations in computer science and mathematics.",
+      "period": "Aug 2019 – June 2022"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Sorting Visualizer",
+      "url": "https://sorting-visualizer-three-pi.vercel.app",
+      "description": "Interactive web app that visualizes multiple sorting algorithms with real-time animations.",
+      "highlights": [
+        "Visualizes Bubble, Insertion, Selection, Merge, and Quick Sort step by step.",
+        "Built in vanilla HTML, CSS, and JavaScript for maximum performance.",
+        "Includes adjustable speed and array size for better understanding of algorithms.",
+        "Designed a clean UI that highlights comparisons and swaps in real time."
+      ],
+      "image": "projects/real.jpg",
+      "tags": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ]
+    },
+    {
+      "name": "SmartKart — E-commerce Platform",
+      "url": "https://quick-kart-lilac.vercel.app",
+      "description": "Python Django based e-commerce platform with full authentication and order flows.",
+      "highlights": [
+        "Implemented JWT based auth with roles for users, sellers, and admins.",
+        "Built REST APIs for cart, wishlist, orders, payments, and inventory.",
+        "Integrated ML based recommendation engine using cosine similarity.",
+        "Created responsive dashboards using React.js and Tailwind CSS."
+      ],
+      "image": "projects/smartkart.jpg",
+      "tags": [
+        "Django",
+        "Python",
+        "React.js",
+        "Tailwind CSS"
+      ]
+    },
+    {
+      "name": "MyPrepSpot — Library Booking",
+      "url": "https://myprepspot.com",
+      "description": "Library booking and productivity platform for managing seat reservations.",
+      "highlights": [
+        "Developed booking flow for reserving library seats and managing sessions.",
+        "Designed intuitive UI for checking availability and current bookings.",
+        "Implemented secure backend APIs and role based access.",
+        "Optimized experience for students preparing for competitive exams."
+      ],
+      "image": "projects/myprepspot.JPG",
+      "tags": [
+        "Django",
+        "React.js"
+      ]
+    },
+    {
+      "name": "Career-F-Crawler",
+      "url": "https://career-f-crawler.onrender.com",
+      "description": "Flask based job insights tool that analyzes job descriptions.",
+      "highlights": [
+        "Used BeautifulSoup and PDF parsing to extract raw job text from multiple sources.",
+        "Applied scikit-learn and Pandas to analyze skills and patterns in job data.",
+        "Built interactive web UI in Flask for uploading and viewing analysis.",
+        "Helps students understand skill gaps for target job roles."
+      ],
+      "image": "projects/career-f-crawler.JPG",
+      "tags": [
+        "Flask",
+        "Python",
+        "scikit-learn",
+        "Pandas"
+      ]
+    }
+  ],
+  "photo": "profile.jpg",
+  "roles": [
+    "Full Stack Developer",
+    "Machine Learning",
+    "Data Engineer"
+  ]
+}
